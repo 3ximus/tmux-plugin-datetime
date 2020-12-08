@@ -11,6 +11,7 @@ time_status_interpolation="\#{time}"
 update_tmux_option() {
   local option_value="$(tmux show-option -gqv "$1")"
   tmux set-option -gq "$1" "${option_value/$date_status_interpolation/$date_status}"
+  option_value="$(tmux show-option -gqv "$1")"
   tmux set-option -gq "$1" "${option_value/$time_status_interpolation/$time_status}"
 }
 
